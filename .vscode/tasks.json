@@ -1,0 +1,23 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"windows": {
+				"command": "cargo rustc -- -C link-args=\"/ENTRY:_start /SUBSYSTEM:console\""
+			},
+			"linux": {
+				"command": "cargo rustc -- -C link-arg=-nostartfiles"
+			},
+			"problemMatcher": ["$rustc"],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"label": "Build to current host system"
+		}
+	]
+}
