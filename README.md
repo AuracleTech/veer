@@ -1,5 +1,18 @@
 # veer
 
+#### dependencies
+
+```rust,ignore
+
+rustup toolchain install nightly
+
+rustup component add rust-src --toolchain nightly-x86_64-pc-windows-msvc
+
+rustup component add llvm-tools-preview
+
+cargo install bootimage
+```
+
 #### bootimage tasks
 
 ```rust,ignore
