@@ -3,22 +3,7 @@
 	"tasks": [
 		{
 			"type": "shell",
-			"windows": {
-				"command": "cargo rustc -- -C link-args=\"/ENTRY:_start /SUBSYSTEM:console\""
-			},
-			"linux": {
-				"command": "cargo rustc -- -C link-arg=-nostartfiles"
-			},
-			"problemMatcher": ["$rustc"],
-			"group": "build",
-			"options": {
-				"cwd": "${workspaceFolder}"
-			},
-			"label": "Build to current host system"
-		},
-		{
-			"type": "shell",
-			"command": "cargo build",
+			"command": "cargo bootimage",
 			"problemMatcher": ["$rustc"],
 			"group": {
 				"kind": "build",
@@ -27,17 +12,27 @@
 			"options": {
 				"cwd": "${workspaceFolder}"
 			},
-			"label": "Build"
+			"label": "veer: Build"
 		},
 		{
 			"type": "shell",
-			"command": "cargo clean&&cargo build",
+			"command": "cargo clean",
 			"problemMatcher": ["$rustc"],
 			"group": "build",
 			"options": {
 				"cwd": "${workspaceFolder}"
 			},
-			"label": "Clean & Build"
+			"label": "veer: Clean"
+		},
+		{
+			"type": "shell",
+			"command": "cargo clean&&cargo bootimage",
+			"problemMatcher": ["$rustc"],
+			"group": "build",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"label": "veer: Clean & Build"
 		}
 	]
 }
