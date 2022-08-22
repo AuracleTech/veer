@@ -10,6 +10,16 @@
 				"command": "cargo rustc -- -C link-arg=-nostartfiles"
 			},
 			"problemMatcher": ["$rustc"],
+			"group": "build",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"label": "Build to current host system"
+		},
+		{
+			"type": "shell",
+			"command": "cargo build --target x86_64-veer.json",
+			"problemMatcher": ["$rustc"],
 			"group": {
 				"kind": "build",
 				"isDefault": true
@@ -17,7 +27,17 @@
 			"options": {
 				"cwd": "${workspaceFolder}"
 			},
-			"label": "Build to current host system"
+			"label": "Build to none-veer"
+		},
+		{
+			"type": "shell",
+			"command": "cargo clean&&cargo build --target x86_64-veer.json",
+			"problemMatcher": ["$rustc"],
+			"group": "build",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"label": "Clean & Build"
 		}
 	]
 }
