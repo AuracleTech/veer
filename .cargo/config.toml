@@ -1,2 +1,7 @@
 [unstable]
 build-std = ["core", "compiler_builtins"]
+# Include needed functions ( memset, memcmp, memcpy ... )
+build-std-features = ["compiler-builtins-mem"]
+
+[build]
+target = "x86_64-veer.json"
