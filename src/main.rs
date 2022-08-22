@@ -5,17 +5,19 @@ mod vga_buffer;
 
 use core::panic::PanicInfo;
 
-static HELLO: &[u8] = b"Hello World!";
-
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
-    vga_buffer::write_string("Hello, Sekai!")
+    println!("||   / /  //___) ) //___) ) //  ) )");
+    println!("||  / /  //       //       //");
+    println!("|| / /  //       //       //");
+    println!("||/ /  ((____   ((____   //");
 
     loop {}
 }
 
 /// This function is called on panic.
 #[panic_handler]
-fn panic(_info: &PanicInfo) -> ! {
+fn panic(info: &PanicInfo) -> ! {
+    println!("{}", info);
     loop {}
 }
