@@ -33,6 +33,16 @@
 				"cwd": "${workspaceFolder}"
 			},
 			"label": "veer: Clean & Build"
+		},
+		{
+			"type": "shell",
+			"command": "qemu-system-x86_64 -drive format=raw,file=target/x86_64-veer/debug/bootimage-veer.bin",
+			"problemMatcher": ["$rustc"],
+			"group": "build",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"label": "veer: Virtualize"
 		}
 	]
 }
