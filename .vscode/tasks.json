@@ -5,10 +5,7 @@
 			"type": "shell",
 			"command": "cargo bootimage",
 			"problemMatcher": ["$rustc"],
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			},
+			"group": "build",
 			"options": {
 				"cwd": "${workspaceFolder}"
 			},
@@ -26,6 +23,16 @@
 		},
 		{
 			"type": "shell",
+			"command": "qemu-system-x86_64 -drive format=raw,file=target/x86_64-veer/debug/bootimage-veer.bin",
+			"problemMatcher": ["$rustc"],
+			"group": "build",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"label": "veer: Virtualize"
+		},
+		{
+			"type": "shell",
 			"command": "cargo clean&&cargo bootimage",
 			"problemMatcher": ["$rustc"],
 			"group": "build",
@@ -36,13 +43,16 @@
 		},
 		{
 			"type": "shell",
-			"command": "qemu-system-x86_64 -drive format=raw,file=target/x86_64-veer/debug/bootimage-veer.bin",
+			"command": "cargo clean&&cargo bootimage&&qemu-system-x86_64 -drive format=raw,file=target/x86_64-veer/debug/bootimage-veer.bin",
 			"problemMatcher": ["$rustc"],
-			"group": "build",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
 			"options": {
 				"cwd": "${workspaceFolder}"
 			},
-			"label": "veer: Virtualize"
+			"label": "veer: Clean & Build & Virtualize"
 		}
 	]
 }
