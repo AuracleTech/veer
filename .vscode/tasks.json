@@ -43,7 +43,7 @@
 		},
 		{
 			"type": "shell",
-			"command": "cargo clean&&cargo bootimage&&cargo run",
+			"command": "cargo clean&&cargo run",
 			"problemMatcher": ["$rustc"],
 			"group": {
 				"kind": "build",
