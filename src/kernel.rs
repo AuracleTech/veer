@@ -14,6 +14,8 @@ pub extern "C" fn _start() -> ! {
     println!("|| / /  //       //       //");
     println!("||/ /  ((____   ((____   //");
 
+    veer::init();
+
     #[cfg(test)]
     test_main();
 
